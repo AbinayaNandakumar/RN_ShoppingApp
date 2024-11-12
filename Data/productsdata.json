@@ -23,17 +23,11 @@
     "description":"Compression tank top designed to enhance circulation and muscle support during workouts, made from breathable fabric",
     "Price":"40.99",
     "image":"./clothing1.png"},
-    {"id": 34, 
-    "subCategoryId":"ca1",
-    "name": "PowerPulse Compression Tube Top",
-    "description":"Compression tank top designed to enhance circulation and muscle support during workouts, made from breathable fabric",
-    "Price":"40.99",
-    "image":"./clothing1.png"       
-    },
+   
     {"id": 41, 
     "subCategoryId":"cw1",
     "name": "Cotton Top",
-    "description":"Top designed to enhance circulation and muscle support during workouts, made from breathable fabric",
+    "description":"Top designed to enhance circulation and muscle support during workouts, made from breathable fabric.",
     "Price":"40.99",
     "image":"./clothing1.png"
     },
@@ -58,6 +52,7 @@
     "Price":"40.99",
     "image":"./clothing1.png"
     },
+
     {"id": 51, 
     "subCategoryId":"cm1",
     "name": "Formal Shirt",
@@ -86,6 +81,7 @@
     "Price":"40.99",
     "image":"./clothing1.png"
     },
+
     {"id": 61, 
     "subCategoryId":"cc1",
     "name": "Children Top Girl",
@@ -114,6 +110,7 @@
     "Price":"40.99",
     "image":"./clothing1.png"
     },
+
     {"id": 71, 
     "subCategoryId":"cz1",
     "name": "Cozy wear maxi",
@@ -142,6 +139,7 @@
     "Price":"40.99",
     "image":"./clothing1.png"
     },
+
     {"id": 81, 
     "subCategoryId":"co1",
     "name": "Jacket",
@@ -170,6 +168,7 @@
     "Price":"40.99",
     "image":"./clothing1.png"
     },
+
     {"id": 91, 
     "subCategoryId":"cs1",
     "name": "Swim Suit",
@@ -197,7 +196,8 @@
     "description":"Sample Description",
     "Price":"40.99",
     "image":"./clothing1.png"
-    }
+    },
+    
     {"id": 101, 
     "subCategoryId":"cu1",
     "name": "casual top",
@@ -225,6 +225,285 @@
     "description":"Sample Description",
     "Price":"40.99",
     "image":"./clothing1.png"
+    },
+
+    {"id": 111, 
+    "subCategoryId":"alb1",
+    "name": "Duffel Bag",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 112, 
+    "subCategoryId":"alb1",
+    "name": "Check-in Bag",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 113, 
+    "subCategoryId":"alb1",
+    "name": "Cabin Bag",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 114, 
+    "subCategoryId":"alb1",
+    "name": "Laptop Bag",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+
+    {"id": 121, 
+    "subCategoryId":"ahb1",
+    "name": "Tote Bag",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 122, 
+    "subCategoryId":"ahb1",
+    "name": "Satchel Bag",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 123, 
+    "subCategoryId":"ahb1",
+    "name": "Backpack",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 124, 
+    "subCategoryId":"ahb1",
+    "name": "Cross body Bag",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+
+    {"id": 131, 
+    "subCategoryId":"afj1",
+    "name": "Stud earrings",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 132, 
+    "subCategoryId":"afj1",
+    "name": "Silver Ornaments",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 133, 
+    "subCategoryId":"afj1",
+    "name": "Bracelets",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 134, 
+    "subCategoryId":"afj1",
+    "name": "Hair Accessories",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+
+    {"id": 141, 
+    "subCategoryId":"aws1",
+    "name": "Wrist watch",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 142, 
+    "subCategoryId":"aws1",
+    "name": "Bracelet Watch",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 143, 
+    "subCategoryId":"aws1",
+    "name": "Smart Watch",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 144, 
+    "subCategoryId":"aws1",
+    "name": "Fitbit",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+
+    {"id": 151, 
+    "subCategoryId":"awl1",
+    "name": "Bifold Wallet",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 152, 
+    "subCategoryId":"awl1",
+    "name": "Trifold Wallet",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+
+    {"id": 161, 
+    "subCategoryId":"fcsu1",
+    "name": "casual flipflop",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 162, 
+    "subCategoryId":"fcsu1",
+    "name": "casual sandals",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 163, 
+    "subCategoryId":"fcsu1",
+    "name": "casual loafer",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 164, 
+    "subCategoryId":"fcsu1",
+    "name": "casual footwear",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 165, 
+    "subCategoryId":"fcsu1",
+    "name": "casual footwear1",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 166, 
+    "subCategoryId":"fcsu1",
+    "name": "casual footwear2",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+
+    {"id": 171, 
+    "subCategoryId":"fsp1",
+    "name": "Sports footwear1",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 172, 
+    "subCategoryId":"fsp1",
+    "name": "Sports footwear2",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 173, 
+    "subCategoryId":"fsp1",
+    "name": "Sports footwear3",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 174, 
+    "subCategoryId":"fsp1",
+    "name": "Sports footwear4",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+
+    {"id": 181, 
+    "subCategoryId":"fsn1",
+    "name": "Sneaker1",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 182, 
+    "subCategoryId":"fsn1",
+    "name": "Sneaker2",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 183, 
+    "subCategoryId":"fsn1",
+    "name": "Sneaker3",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 184, 
+    "subCategoryId":"fsn1",
+    "name": "Sneaker4",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+
+    {"id": 191, 
+    "subCategoryId":"bsk1",
+    "name": "Moisturiser",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 192, 
+    "subCategoryId":"bsk1",
+    "name": "eye cream",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 193, 
+    "subCategoryId":"bhk1",
+    "name": "hair conditioner",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 194, 
+    "subCategoryId":"bhk1",
+    "name": "hair gel",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+
+    {"id": 201, 
+    "subCategoryId":"hps1",
+    "name": "Protein Gummies",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
+    },
+    {"id": 202, 
+    "subCategoryId":"hgm1",
+    "name": "yoga mat",
+    "description":"Sample Description",
+    "Price":"40.99",
+    "image":"./clothing1.png"
     }
+
+    
+    
     
 ]

@@ -16,7 +16,6 @@ const CategoryButtons = () => {
             styles.button,
             pressed ? styles.pressed : null,
           ]}
-         // onPress={() => console.log(`Pressed ${category.categoryId}`)}
          onPress={() => navigation.navigate('SearchCategories', { categoryName: category.name, categoryId: category.categoryId })}
         >
           <View style={styles.buttonContent}>
@@ -32,7 +31,6 @@ const CategoryButtons = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    //flexWrap: 'wrap',
     justifyContent: 'space-between',
     padding: 10,
   },

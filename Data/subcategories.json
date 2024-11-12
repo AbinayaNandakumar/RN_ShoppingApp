@@ -14,7 +14,7 @@
     {"id": 44, "categoryId":"a1","subCategoryId":"aws1","name": "Watches & Smartwatches","categoryname":"Accessories"},
     {"id": 45, "categoryId":"a1","subCategoryId":"awl1","name": "Wallets","categoryname":"Accessories"},
 
-    {"id": 51,"categoryId":"f1","subCategoryId":"fcu1", "name": "Casual","categoryname":"Shoes"},
+    {"id": 51,"categoryId":"f1","subCategoryId":"fcsu1", "name": "Casual","categoryname":"Shoes"},
     {"id": 52,"categoryId":"f1","subCategoryId":"fsp1", "name": "Sports","categoryname":"Shoes"},
     {"id": 53, "categoryId":"f1","subCategoryId":"fsn1","name": "Sneakers","categoryname":"Shoes"},
     {"id": 54, "categoryId":"f1","subCategoryId":"ffl1","name": "Formal","categoryname":"Shoes"},

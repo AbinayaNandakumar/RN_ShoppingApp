@@ -9,14 +9,13 @@ function HomeScreen()
 
     function buttonHandler()
     {
-        console.log('button pressed');
         navigation.navigate('Shop');
     }
     return(
         <View style={styles.rootContainer}>
             
             <View style={styles.baseView}>
-            <Image source={require(`./rewards1.png`)} style={styles.productImage} />
+            <Image source={require(`./Images/rewards1.png`)} style={styles.productImage} />
             <Text style={styles.saleText}>Summer sale is here ! </Text>
             <Text style={styles.offerText}>Selected Items 25%,40% and 75% off ! </Text>
             </View>

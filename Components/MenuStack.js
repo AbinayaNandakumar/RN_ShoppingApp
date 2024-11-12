@@ -11,6 +11,7 @@ function MenuStack () {
     <Stack.Navigator>
       <Stack.Screen name="Menus" component={MenuScreen} options={{headerTitle:'Menu'}}/>
       <Stack.Screen name="AboutScreen" component={AboutScreen} options={{headerTitle:'About'}}/>
+
       
     </Stack.Navigator>
   );

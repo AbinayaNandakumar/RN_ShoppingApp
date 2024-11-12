@@ -16,21 +16,21 @@ const RewardsScreen = () => {
       title: '10% Off',
       description: 'On your next purchase',
       points: 100,
-      image: require('./rewards1.png'),
+      image: require('./Images/rewards1.png'),
     },
     {
       id: 2,
       title: 'Free Shipping',
       description: 'On orders over $50',
       points: 200,
-      image: require('./rewards2.png'),
+      image: require('./Images/rewards2.png'),
     },
     {
       id: 3,
       title: '$5 Off',
       description: 'On your birthday',
       points: 50,
-      image: require('./rewards3.png'),
+      image: require('./Images/rewards3.png'),
     },
   ];
 

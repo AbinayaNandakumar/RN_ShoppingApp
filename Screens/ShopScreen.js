@@ -5,10 +5,10 @@ import CategoryButtons from '../Components/CategoryButton';
 function ShopScreen()
 {
     return (
-        <View>
-<SearchBar></SearchBar>
-<CategoryButtons></CategoryButtons>
-        </View>
+<View>
+    <SearchBar></SearchBar>
+    <CategoryButtons></CategoryButtons>
+</View>
         
     );
 

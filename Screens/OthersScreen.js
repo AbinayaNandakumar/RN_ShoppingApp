@@ -20,45 +20,35 @@ const OthersScreen = () => {
     },
     {
       id: 2,
-      title: 'Sell on Our Platform',
-      //icon: require('./sell.png'),
-     // navigation: 'SellOnPlatform',
-    },
-    {
-      id: 3,
       title: 'Track Orders',
       //icon: require('./track-order.png'),
      // navigation: 'TrackOrders',
     },
     {
-      id: 4,
+      id: 3,
       title: 'Help & Support',
       //icon: require('./help.png'),
       //navigation: 'HelpSupport',
     },
     {
-      id: 6,
+      id: 4,
       title: 'Refer a Friend',
      // icon: require('./refer-friend.png'),
       //navigation: 'ReferFriend',
     },
     {
-      id: 7,
+      id: 5,
       title: 'Rate Our App',
      // icon: require('./rate-app.png'),
      // navigation: 'RateApp',
     },
     {
-      id: 8,
+      id: 6,
       title: 'Feedback',
       //icon: require('./feedback.png'),
       //navigation: 'Feedback',
     }
   ];
-
- /* const handlePress = (item) => {
-    navigation.navigate(item.navigation);
-  };*/
 
   const renderItem = ({ item }) => (
     <TouchableOpacity style={styles.item}>

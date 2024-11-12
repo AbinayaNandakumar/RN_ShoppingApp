@@ -1,5 +1,4 @@
 
-import { useState, useEffect } from 'react';
 import React from 'react';
 import { View, Text, StyleSheet, FlatList,TouchableOpacity } from 'react-native';
 import SearchBar from '../Components/SearchBar';
@@ -9,12 +8,6 @@ import { useNavigation } from '@react-navigation/native';
 
 const SearchCategories = ({ route }) => {
   const navigation = useNavigation();
-
-  // let listCategory;
-  // const [products, setProducts] = useState([]);
-  // useEffect(() => {
-  //   setProducts(listCategory);
-  //  }, []);
  
   const{categoryName, categoryId} = route.params;
   console.log('category::',categoryName);
@@ -25,11 +18,6 @@ const SearchCategories = ({ route }) => {
   });
   console.log('plsworkout:',displayedSubcategories);
 
-
-  // const handleCategoryPress = (category) => {
-  //   navigation.navigate('Products', { category });
-  // };
-
   return (
     <View style={styles.container}>
       <SearchBar></SearchBar>
@@ -38,8 +26,9 @@ const SearchCategories = ({ route }) => {
         data={displayedSubcategories}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() =>
-           navigation.navigate('Products', 
-           { categoryName: item.name, categoryId: item.subCategoryId })} >
+              navigation.navigate('Products', 
+            { categoryName: item.name, categoryId: item.subCategoryId })} >
+
          <View style={styles.listItem}>
             <Text style={styles.listText}>{item.name}</Text>
           </View>
@@ -76,7 +65,3 @@ const styles = StyleSheet.create({
 });
 
 export default SearchCategories;
-/*
-<Pressable style={styles.listItem} >
-<Text style={styles.listText}>{item.name}</Text>
-</Pressable> */
