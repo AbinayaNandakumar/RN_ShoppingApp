@@ -1,0 +1,7 @@
+   [
+    { "id": 1, "name": "Clothing","categoryId":"c1","icon": "shirt-outline" },
+    {"id": 2,"name": "Accessories","categoryId":"a1","icon": "bag" },        
+    { "id": 3,"name": "Shoes","categoryId":"f1","icon": "footsteps-outline"},
+    {"id": 4,"name": "Beauty","categoryId":"b1","icon": "brush-outline"},
+    {"id": 5,"name": "Health & Wellness","categoryId":"h1","icon": "heart"}
+   ]

@@ -1,0 +1,34 @@
+[
+    {
+      "id": 1,
+      "name": "Account",
+      "icon": "person-outline"
+    },
+    {
+      "id": 2,
+      "name": "Subscription",
+      "icon": "thumbs-up-outline"
+
+    },
+    {
+      "id": 3,
+      "name": "Languages",
+      "icon": "language-outline"
+    },
+    {
+      "id": 4,
+      "name": "Notifications",
+      "icon": "notifications-outline"
+    },
+    {
+      "id": 5,
+      "name": "About",
+      "icon": "information-circle-outline"
+    },
+    {
+      "id": 6,
+      "name": "Logout",
+      "icon": "log-out-outline"
+    }
+  ]
+  

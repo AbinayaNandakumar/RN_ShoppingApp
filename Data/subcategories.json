@@ -1,0 +1,37 @@
+[
+    {"id": 21,"categoryId":"c1","subCategoryId":"cw1", "name": "Women","categoryname":"Clothing"},
+    {"id": 22,"categoryId":"c1", "subCategoryId":"cm1","name": "Men","categoryname":"Clothing"},
+    {"id": 23,"categoryId":"c1", "subCategoryId":"cc1","name": "Children","categoryname":"Clothing"},
+    {"id": 24,"categoryId":"c1","subCategoryId":"ca1", "name": "ActiveWear","categoryname":"Clothing"},
+    {"id": 25,"categoryId":"c1","subCategoryId":"cz1", "name": "CozyWear","categoryname":"Clothing"},
+    {"id": 26,"categoryId":"c1", "subCategoryId":"co1","name": "Outside","categoryname":"Clothing"},
+    {"id": 27,"categoryId":"c1", "subCategoryId":"cs1","name": "SwimWear","categoryname":"Clothing"},
+    {"id": 28, "categoryId":"c1","subCategoryId":"cu1","name": "Casual","categoryname":"Clothing"},
+
+    {"id": 41,"categoryId":"a1","subCategoryId":"alb1", "name": "Luggage & Bags","categoryname":"Accessories"},
+    {"id": 42, "categoryId":"a1","subCategoryId":"ahb1","name": "Handbags & Bags","categoryname":"Accessories"},
+    {"id": 43, "categoryId":"a1","subCategoryId":"afj1","name": "Fashion Jewellery","categoryname":"Accessories"},
+    {"id": 44, "categoryId":"a1","subCategoryId":"aws1","name": "Watches & Smartwatches","categoryname":"Accessories"},
+    {"id": 45, "categoryId":"a1","subCategoryId":"awl1","name": "Wallets","categoryname":"Accessories"},
+
+    {"id": 51,"categoryId":"f1","subCategoryId":"fcu1", "name": "Casual","categoryname":"Shoes"},
+    {"id": 52,"categoryId":"f1","subCategoryId":"fsp1", "name": "Sports","categoryname":"Shoes"},
+    {"id": 53, "categoryId":"f1","subCategoryId":"fsn1","name": "Sneakers","categoryname":"Shoes"},
+    {"id": 54, "categoryId":"f1","subCategoryId":"ffl1","name": "Formal","categoryname":"Shoes"},
+    {"id": 55, "categoryId":"f1","subCategoryId":"fsa1","name": "Sandals","categoryname":"Shoes"},
+    {"id": 56, "categoryId":"f1","subCategoryId":"fsl1","name": "Slippers","categoryname":"Shoes"},
+    {"id": 57, "categoryId":"f1","subCategoryId":"fcl1","name": "Clogs","categoryname":"Shoes"},
+
+    {"id": 61,"categoryId":"b1", "subCategoryId":"bsk1","name": "Skincare","categoryname":"Beauty"},
+    {"id": 62, "categoryId":"b1","subCategoryId":"bhk1","name": "Haircare","categoryname":"Beauty"},
+    {"id": 63, "categoryId":"b1","subCategoryId":"bmk1","name": "Makeup","categoryname":"Beauty"},
+    {"id": 64, "categoryId":"b1","subCategoryId":"bfr1","name": "Fragrance","categoryname":"Beauty"},
+    {"id": 65, "categoryId":"b1","subCategoryId":"bbs1","name": "Bath&Shower","categoryname":"Beauty"},
+    {"id": 66,"categoryId":"b1", "subCategoryId":"bbd1","name": "BeautyDevices","categoryname":"Beauty"},
+    {"id": 67, "categoryId":"b1","subCategoryId":"bgr1","name": "Grooming","categoryname":"Beauty"},
+
+    {"id": 71, "categoryId":"h1","subCategoryId":"hps1","name": "Protein Supplements","categoryname":"Health & Wellness"},
+    {"id": 72, "categoryId":"h1","subCategoryId":"hgm1","name": "Gym Essentials","categoryname":"Health & Wellness"}
+
+    
+]
