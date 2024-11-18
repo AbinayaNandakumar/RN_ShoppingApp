@@ -17,19 +17,17 @@ const screenWidth = Dimensions.get('window').width;
 const ProductList = ({route}) => {
   const navigation = useNavigation();
 
-  const{categoryName, categoryId} = route.params;
-  console.log('catname:',categoryName);
+  const{categoryId} = route.params;
   console.log( 'catid:',categoryId);
 
   const displayedproducts = productsdata.filter((dataItem)=> {
     return dataItem.subCategoryId.indexOf(categoryId) >= 0;
   });
 
-  
   const renderItem = ({ item }) => (
     
     <View style={styles.productContainer}>
-      <TouchableOpacity onPress={() => navigation.navigate('ProductDetail', { ProductName: item.name, ProductCategoryId: item.subCategoryId, ProductDescription: item.description, ProductPrice: item.Price })}>
+      <TouchableOpacity onPress={() => navigation.navigate('ProductDetail', { ProductName: item.name, ProductId: item.productId })}>
       <Image source={require(`./Images/clothing1.png`)} style={styles.productImage} />
       <View style={styles.productInfo}>
         <Text style={styles.productName}>{item.name}</Text>

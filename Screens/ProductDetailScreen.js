@@ -1,23 +1,30 @@
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+
 import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity, } from 'react-native';
+//import Toast from 'react-native-toast-message';
+//import FlashMessage from 'react-native-flash-message';
+
 import QuantitySelector from '../Components/QuantitySelector';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import productsdata from '../Data/productsdata.json';
+import { CartUserContext } from '../Store/CartUserContext';
+
 
 
 const ProductDetailScreen = ({ route }) => {
   const navigation = useNavigation();
-
-  const { ProductName, ProductCategoryId, ProductDescription, ProductPrice } = route.params;
-
-  console.log('Product Name:', ProductName);
-  console.log('Product ID:', ProductCategoryId);
-  console.log('Product Price:', ProductPrice);
-  console.log('Product Description:', ProductDescription);
-
-
-  const [quantity, setQuantity] = useState(1);
+  
+  const { ProductName, ProductId } = route.params;
+//const filteredProducts = productsdata.filter((product) => product.productId === ProductId);
+const filteredProduct = productsdata.find((product) => product.productId === ProductId);
+const ProductCategoryId = filteredProduct.subCategoryId;
+const ProductPrice = filteredProduct.Price;
+const ProductDescription = filteredProduct.description;
+const [quantity, setQuantity] = useState(1);
+ 
+const {addToCart} = useContext(CartUserContext);
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
@@ -30,13 +37,32 @@ const ProductDetailScreen = ({ route }) => {
   };
 
   const totalPrice = (ProductPrice * quantity).toFixed(2);
-  
-    const productDetailArray = [ProductName,ProductCategoryId,ProductPrice,ProductDescription,quantity];
-  
+  const productsAddedForCart = [
+    {
+      name: ProductName,
+      id: ProductId,
+      price: ProductPrice,
+      description: ProductDescription,
+      quantity: quantity,
+      totalPrice: totalPrice
+    },
+  ];
   function addToBagHandler()
   {
-    console.log('productDetailArray',productDetailArray);
-  navigation.navigate('YOUR BAG', {productDetailArray} );
+    console.log('productDetailArrayforCart',productsAddedForCart);
+    addToCart(...productsAddedForCart);
+    navigation.navigate('YOUR BAG');
+  //navigation.navigate('YOUR BAG', {productsAddedForCart} );
+  // Toast.show({
+  //   type: 'success',
+  //   text1: 'Item added to bag!',
+  //   position: 'bottom',
+  //   visibilityTime: 2000,
+  // });
+  // FlashMessage.show({
+  //   message: 'Item added to cart!',
+  //   type: 'success',
+  // });
   }
 
   return (
