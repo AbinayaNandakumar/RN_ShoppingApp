@@ -15,7 +15,9 @@
     "expo": "~51.0.28",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
-    "react-native": "0.74.5"
+    "react-native": "0.74.5",
+    "react-native-flash-message": "^0.2.0",
+    "react-native-toast-message": "^2.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

@@ -27,6 +27,7 @@ const QuantitySelector = ({ quantity, onIncrement, onDecrement }) => {
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
