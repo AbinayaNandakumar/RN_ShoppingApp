@@ -1,73 +1,96 @@
-import React from 'react';
-import { View, Text, Image, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { useState,useContext } from 'react';
+import { View, Text, Image, FlatList, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import QuantitySelector from '../Components/QuantitySelector';
+import { CartUserContext } from '../Store/CartUserContext';
 
 const BagCart = ({ route }) => {
- // const { productDetailArray } = route.params;
-  const productDetailArray = route.params ? route.params.productDetailArray : null;
-  // Check if productDetailArray is empty or null
-  if (!productDetailArray || productDetailArray.length === 0) {
+ // const productDetailArray = route.params ? route.params.productsAddedForCart : null;
+  const { cartItems, removeFromCart, updateQuantity } = useContext(CartUserContext);
+  if (cartItems.length === 0) {
     return (
-      <View>
-        <Text>No products found.</Text>
+      <View style={styles.emptyCartContainer}>
+        <Text style={styles.emptyCartText}>Your bag is empty.</Text>
       </View>
     );
   }
+  
+const handleIncrement = (id) => {
+  updateQuantity(id, cartItems.find((item) => (item.id) === id).quantity + 1);
+};
 
-  // Convert productDetails array into an array of objects
-  const products = [
-    {
-      title: productDetailArray[0],
-      id: productDetailArray[1],
-      price: productDetailArray[2],
-      description: productDetailArray[3],
-      quantity: productDetailArray[4],
-    },
-  ];
+const handleDecrement = (id) => {
+  updateQuantity(id, cartItems.find((item) => (item.id) === id).quantity - 1);
+};
 
-  const calculateSubtotal = () => {
-    let subtotal = 0;
-    products.forEach((product) => {
-      subtotal += parseFloat(product.price) * product.quantity;
-    });
-    return subtotal.toFixed(2);
-  };
+const calculateSubtotal = () => {
+  let subtotal = 0;
+  cartItems.forEach((product) => {
+    subtotal += parseFloat(product.price) * product.quantity;
+  });
+  return subtotal.toFixed(2);
+};
 
-  const calculateTotal = () => {
-    const subtotal = parseFloat(calculateSubtotal());
-    const shipment = 5;
-    return (subtotal + shipment).toFixed(2);
-  };
+const calculateTotal = () => {
+  const subtotal = parseFloat(calculateSubtotal());
+  const shipment = 5;
+  return (subtotal + shipment).toFixed(2);
+};
 
-  return (
-    <View style={styles.container}>
-      <FlatList
-        data={products}
-        renderItem={({ item }) => (
-          <View style={styles.productContainer}>
-            <Image source={require('./Images/clothing1.png')} style={styles.productImage} />
-            <View style={styles.productInfo}>
-              <Text style={styles.productTitle}>{item.title}</Text>
-              <Text style={styles.productDescription}>{item.description}</Text>
-              <Text style={styles.productPrice}>${item.price}</Text>
-              <Text style={styles.productQuantity}>Quantity: {item.quantity}</Text>
-            </View>
-          </View>
-        )}
-        keyExtractor={(item, index) => index.toString()}
-      />
-      <View style={styles.summaryContainer}>
-        <Text style={styles.summaryText}>
-          Quantity: {products.reduce((acc, product) => acc + product.quantity, 0)}
-        </Text>
-        <Text style={styles.summaryText}>Subtotal: ${calculateSubtotal()}</Text>
-        <Text style={styles.summaryText}>Shipment: $5</Text>
-        <Text style={styles.summaryText}>Total: ${calculateTotal()}</Text>
-      </View>
-      <TouchableOpacity style={styles.orderButton}>
-        <Text style={styles.orderButtonText}>Order Now</Text>
-      </TouchableOpacity>
-    </View>
+const handleRemove = (id) => {
+  Alert.alert(
+    "Remove Item",
+    "Are you sure you want to remove this item from your cart?",
+    [
+      {
+        text: "Cancel",
+        style: "cancel",
+      },
+      { 
+        text: "Remove", 
+        onPress: () => removeFromCart(id) 
+      },
+    ]
   );
+};
+
+return (
+  <View style={styles.container}>
+    <FlatList
+      data={cartItems}
+      renderItem={({ item, index }) => (
+        <View style={styles.productContainer}>
+          <Image source={require('./Images/clothing1.png')} style={styles.productImage} />
+          <View style={styles.productInfo}>
+            <Text style={styles.productTitle}>{item.name}</Text>
+            <Text style={styles.productDescription}>{item.description}</Text>
+            <Text style={styles.productPrice}>${item.price} /ea</Text>
+            <QuantitySelector
+              quantity={item.quantity}
+              onIncrement={() => handleIncrement((item.id))}
+              onDecrement={() => handleDecrement((item.id))}
+            />
+            <TouchableOpacity onPress={() => handleRemove((item.id))}>
+            <Text style={{ color: 'red' }}>Remove</Text>
+            </TouchableOpacity>
+
+          </View>
+        </View>
+      )}
+      keyExtractor={(item,index) => (index).toString()}
+    />
+    <View style={styles.summaryContainer}>
+      <Text style={styles.summaryText}>
+        Quantity: {cartItems.reduce((acc, product) => acc + product.quantity, 0)}
+      </Text>
+      <Text style={styles.summaryText}>Subtotal: ${calculateSubtotal()}</Text>
+      <Text style={styles.summaryText}>Shipment: $5</Text>
+      <Text style={styles.summaryText}>Total: ${calculateTotal()}</Text>
+    </View>
+    <TouchableOpacity style={styles.orderButton}>
+      <Text style={styles.orderButtonText}>Order Now</Text>
+    </TouchableOpacity>
+  </View>
+);
 };
 
 const styles = StyleSheet.create({
@@ -102,10 +125,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: '#333',
-  },
-  productQuantity: {
-    fontSize: 16,
-    color: '#666',
   },
   summaryContainer: {
     padding: 20,

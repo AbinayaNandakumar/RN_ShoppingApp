@@ -16,7 +16,7 @@ const SearchCategories = ({ route }) => {
   const displayedSubcategories = subcategories.filter((dataItem)=> {
     return dataItem.categoryId.indexOf(categoryId) >= 0;
   });
-  console.log('plsworkout:',displayedSubcategories);
+  console.log('subcategories:',displayedSubcategories);
 
   return (
     <View style={styles.container}>
@@ -27,7 +27,7 @@ const SearchCategories = ({ route }) => {
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() =>
               navigation.navigate('Products', 
-            { categoryName: item.name, categoryId: item.subCategoryId })} >
+            { categoryId: item.subCategoryId })} >
 
          <View style={styles.listItem}>
             <Text style={styles.listText}>{item.name}</Text>
