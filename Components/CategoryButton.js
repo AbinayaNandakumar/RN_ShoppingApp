@@ -12,6 +12,7 @@ const CategoryButtons = () => {
     <View style={styles.container}>
       {categoriesdata.map((category) => (
         <Pressable
+        key={category.categoryId}
           style={({ pressed }) => [
             styles.button,
             pressed ? styles.pressed : null,

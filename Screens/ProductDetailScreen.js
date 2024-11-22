@@ -4,7 +4,7 @@ import { useState, useContext } from 'react';
 import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity, } from 'react-native';
 //import Toast from 'react-native-toast-message';
 //import FlashMessage from 'react-native-flash-message';
-
+import { Snackbar } from 'react-native-paper';
 import QuantitySelector from '../Components/QuantitySelector';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
@@ -15,7 +15,7 @@ import { CartUserContext } from '../Store/CartUserContext';
 
 const ProductDetailScreen = ({ route }) => {
   const navigation = useNavigation();
-  
+  const [visible, setVisible] = useState(false);
   const { ProductName, ProductId } = route.params;
 //const filteredProducts = productsdata.filter((product) => product.productId === ProductId);
 const filteredProduct = productsdata.find((product) => product.productId === ProductId);
@@ -51,8 +51,7 @@ const {addToCart} = useContext(CartUserContext);
   {
     console.log('productDetailArrayforCart',productsAddedForCart);
     addToCart(...productsAddedForCart);
-    navigation.navigate('YOUR BAG');
-  //navigation.navigate('YOUR BAG', {productsAddedForCart} );
+    setVisible(true);
   // Toast.show({
   //   type: 'success',
   //   text1: 'Item added to bag!',
@@ -108,6 +107,15 @@ const {addToCart} = useContext(CartUserContext);
     <Text style={styles.addToBagText}>Add to Bag</Text>
     <Text style={styles.priceText}>${totalPrice}</Text>
   </TouchableOpacity>
+  <Snackbar
+  visible={visible}
+  onDismiss={() => setVisible(false)}
+  action={{
+    onPress: () => setVisible(false),
+    }}
+    >
+    Item Added to Cart
+    </Snackbar>
   </>
   );
 };

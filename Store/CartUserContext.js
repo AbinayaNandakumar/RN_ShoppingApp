@@ -5,6 +5,12 @@ const CartUserContext = createContext();
 const CartUserProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   console.log('Initial cartItems:', cartItems);
+  const [shippingAddress, setShippingAddress] = useState({});
+  const [deliveryOption, setDeliveryOption] = useState('in-store-pickup');
+  const [shippingCost, setShippingCost] = useState(0);
+  const [selectedPaymentOption, setSelectedPaymentOption] = useState('');
+  const [addCardDetails, setAddCardDetails] = useState({});
+
 
   const addToCart = (product) => {
     const existingProduct = cartItems.find((item) => (item.id) === (product.id));
@@ -23,7 +29,9 @@ const CartUserProvider = ({ children }) => {
   const removeFromCart = (itemId) => {
     setCartItems(cartItems.filter((item) => (item.id) !== itemId));
   };
-
+  const clearCart = () => {
+    setCartItems([]);
+  };
   const updateQuantity = (itemId, quantity) => {
     if (quantity <= 0) {
       removeFromCart(itemId);
@@ -35,13 +43,20 @@ const CartUserProvider = ({ children }) => {
     }
   };
 
+  const updateShippingAddress = (address) => {
+    setShippingAddress(address);
+  };
+
   return (
     <CartUserContext.Provider
       value={{
         cartItems,
-        addToCart,
-        removeFromCart,
-        updateQuantity,
+        addToCart,removeFromCart,updateQuantity,
+        shippingAddress, updateShippingAddress,
+        deliveryOption, setDeliveryOption, 
+        shippingCost, setShippingCost,
+        selectedPaymentOption, setSelectedPaymentOption,
+        addCardDetails,setAddCardDetails,clearCart
       }}
     >
       {children}

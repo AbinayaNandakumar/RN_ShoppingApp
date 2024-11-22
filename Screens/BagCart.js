@@ -1,9 +1,16 @@
 import { useState,useContext } from 'react';
-import { View, Text, Image, FlatList, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, Image, FlatList, TouchableOpacity, StyleSheet, Alert,Modal,Button } from 'react-native';
 import QuantitySelector from '../Components/QuantitySelector';
 import { CartUserContext } from '../Store/CartUserContext';
+import CheckoutScreen from './CheckoutScreen';
+import { useNavigation } from '@react-navigation/native';
+
+
+
 
 const BagCart = ({ route }) => {
+  const navigation = useNavigation();
+
  // const productDetailArray = route.params ? route.params.productsAddedForCart : null;
   const { cartItems, removeFromCart, updateQuantity } = useContext(CartUserContext);
   if (cartItems.length === 0) {
@@ -13,7 +20,7 @@ const BagCart = ({ route }) => {
       </View>
     );
   }
-  
+  const [isModalVisible, setIsModalVisible] = useState(false);
 const handleIncrement = (id) => {
   updateQuantity(id, cartItems.find((item) => (item.id) === id).quantity + 1);
 };
@@ -53,6 +60,11 @@ const handleRemove = (id) => {
   );
 };
 
+const handleCheckout = () => {
+ navigation.navigate('CHECKOUT');
+};
+
+
 return (
   <View style={styles.container}>
     <FlatList
@@ -70,7 +82,7 @@ return (
               onDecrement={() => handleDecrement((item.id))}
             />
             <TouchableOpacity onPress={() => handleRemove((item.id))}>
-            <Text style={{ color: 'red' }}>Remove</Text>
+    <Text style={{ color: 'red' }}>Remove Item</Text>
             </TouchableOpacity>
 
           </View>
@@ -86,7 +98,7 @@ return (
       <Text style={styles.summaryText}>Shipment: $5</Text>
       <Text style={styles.summaryText}>Total: ${calculateTotal()}</Text>
     </View>
-    <TouchableOpacity style={styles.orderButton}>
+    <TouchableOpacity style={styles.orderButton} onPress={handleCheckout}>
       <Text style={styles.orderButtonText}>Order Now</Text>
     </TouchableOpacity>
   </View>
@@ -148,3 +160,6 @@ const styles = StyleSheet.create({
 });
 
 export default BagCart;
+
+
+
