@@ -11,7 +11,7 @@ export function storePlaceOrderData(orderData)
 export async function fetchCategoriesData() {
     try {
       const responseCategoriesData = await axios.get(BACKEND_URL + '/categories.json');
-      console.log('Response Data(category):', responseCategoriesData.data);
+      //console.log('Response Data(category):', responseCategoriesData.data);
   
       const categoriesdata = [];
       const categoryData = Object.values(responseCategoriesData.data);
@@ -28,7 +28,7 @@ export async function fetchCategoriesData() {
   export async function fetchSubCategoriesData() {
     try {
       const responseSubCategoriesData = await axios.get(BACKEND_URL + '/subcategories.json');
-      console.log('Response Data(subCategory):', responseSubCategoriesData.data);
+      //console.log('Response Data(subCategory):', responseSubCategoriesData.data);
   
       const subcategoriesdata = [];
       const subcategoryData = Object.values(responseSubCategoriesData.data);
@@ -45,7 +45,7 @@ export async function fetchCategoriesData() {
   export async function fetchProductsData() {
     try {
       const responseProductsData = await axios.get(BACKEND_URL + '/productsdata.json');
-      console.log('Response Data(products):', responseProductsData.data);
+      //console.log('Response Data(products):', responseProductsData.data);
   
       const productsdata = [];
       const products = Object.values(responseProductsData.data);
