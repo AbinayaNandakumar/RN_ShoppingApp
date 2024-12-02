@@ -1,23 +1,61 @@
 import React from 'react';
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Text, Pressable, StyleSheet, ActivityIndicator } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import categoriesdata from '../Data/categoriesdata.json';
 import { useNavigation } from '@react-navigation/native';
-
+import { useEffect, useState } from 'react';
+import { fetchCategoriesData } from '../Util/http';
 
 const CategoryButtons = () => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
+  const [fetchedCategoryData, setFetchedCategoryData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const getCategoriesData = async () => {
+      setIsLoading(true);
+      try {
+        const categoryData = await fetchCategoriesData();
+        setFetchedCategoryData(categoryData.filter((item) => item !== null));
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getCategoriesData();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginVertical:300 }}>
+        <ActivityIndicator size="large" color="#512104" />
+      </View>
+    );
+  }
+
+  if (!fetchedCategoryData || fetchedCategoryData.length === 0) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',marginTop:20 }}>
+        <Text>No categories found</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
-      {categoriesdata.map((category) => (
+      {fetchedCategoryData.map((category) => (
         <Pressable
-        key={category.categoryId}
+          key={category.categoryId}
           style={({ pressed }) => [
             styles.button,
             pressed ? styles.pressed : null,
           ]}
-         onPress={() => navigation.navigate('SearchCategories', { categoryName: category.name, categoryId: category.categoryId })}
+          onPress={() =>
+            navigation.navigate('SearchCategories', {
+              categoryName: category.name,
+              categoryId: category.categoryId,
+            })
+          }
         >
           <View style={styles.buttonContent}>
             <Ionicons name={category.icon} size={24} color="#512104" />
@@ -52,7 +90,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 16,
     marginLeft: 10,
-    color:'#512104'
+    color: '#512104',
   },
 });
 

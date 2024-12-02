@@ -6,7 +6,6 @@ function ShopScreen()
 {
     return (
 <View>
-    <SearchBar></SearchBar>
     <CategoryButtons></CategoryButtons>
 </View>
         

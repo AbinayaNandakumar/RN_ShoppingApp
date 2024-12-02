@@ -1,52 +1,41 @@
 import React, { useState } from 'react';
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-   
-} from 'react-native';
-
+import { View, Text, StyleSheet } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Pressable, TextInput } from 'react-native';
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
-  const handleSearch = () => {
-    console.log('Searching for:', searchQuery);
+  const handleTextChange = (text) => {
+    setSearchQuery(text);
+    onSearch(text);
   };
 
   return (
     <View style={styles.container}>
-      <Pressable 
+      <Pressable
         style={({ pressed }) => [
-          styles.inputContainer, 
+          styles.inputContainer,
           pressed ? styles.pressed : null,
-          isFocused ? styles.focused : null
+          isFocused ? styles.focused : null,
         ]}
         onPressIn={() => setIsFocused(true)}
         onPressOut={() => setIsFocused(false)}
-        onPress={() => handleSearch()}
       >
         <View style={styles.inputWrapper}>
-          <Ionicons 
-            name="search"
-            size={26} 
-            color='#ccc' 
-            style={styles.searchIcon} 
-          />
-          <TextInput 
-            style={styles.input} 
-            placeholder="Search" 
-            onChangeText={(text) => setSearchQuery(text)} 
+          <Ionicons name="search" size={26} color="#ccc" style={styles.searchIcon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Search"
+            onChangeText={handleTextChange}
+
             value={searchQuery}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           />
         </View>
       </Pressable>
-      
     </View>
   );
 };
@@ -54,12 +43,12 @@ const SearchBar = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 8,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: "#f0f0f0",
   },
   inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderColor: 'gray',
+    flexDirection: "row",
+    alignItems: "center",
+    borderColor: "gray",
     borderWidth: 1,
     padding: 3,
     borderRadius: 10,
@@ -68,15 +57,15 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   focused: {
-    borderColor: '#007aff',
-    backgroundColor: '#f5f5f5',
+    borderColor: "#007aff",
+    backgroundColor: "#f5f5f5",
   },
   searchIcon: {
     margin: 8,
   },
   inputWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   input: {
     flex: 1,

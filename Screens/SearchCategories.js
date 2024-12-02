@@ -1,39 +1,65 @@
-
-import React from 'react';
-import { View, Text, StyleSheet, FlatList,TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
 import SearchBar from '../Components/SearchBar';
-import subcategories from '../Data/subcategories.json';
 import { useNavigation } from '@react-navigation/native';
-
+import { fetchSubCategoriesData } from '../Util/http';
 
 const SearchCategories = ({ route }) => {
   const navigation = useNavigation();
- 
-  const{categoryName, categoryId} = route.params;
-  console.log('category::',categoryName);
-  console.log( 'id:',categoryId);
+  const [fetchedSubCategoryData, setFetchedSubCategoryData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
 
-  const displayedSubcategories = subcategories.filter((dataItem)=> {
+  useEffect(() => {
+    const getSubCategoriesData = async () => {
+      setIsLoading(true);
+      try {
+        const subcategoryData = await fetchSubCategoriesData();
+        setFetchedSubCategoryData(subcategoryData.filter((item) => item !== null));
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getSubCategoriesData();
+  }, []);
+
+  const { categoryName, categoryId } = route.params;
+
+  const displayedSubcategories = fetchedSubCategoryData.filter((dataItem) => {
     return dataItem.categoryId.indexOf(categoryId) >= 0;
   });
-  console.log('subcategories:',displayedSubcategories);
+
+  const handleSearch = (text) => {
+    setSearchQuery(text);
+    const filtered = displayedSubcategories.filter((item) => {
+      return item.name.toLowerCase().includes(text.toLowerCase());
+    });
+    setFilteredData(filtered);
+  };
+
+  if (isLoading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" color="#512104" />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
-      <SearchBar></SearchBar>
+      <SearchBar onSearch={(text) => handleSearch(text)} />
       <Text style={styles.header}>{categoryName}</Text>
       <FlatList
-        data={displayedSubcategories}
+        data={searchQuery === '' ? displayedSubcategories : filteredData}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() =>
-              navigation.navigate('Products', 
-            { categoryId: item.subCategoryId })} >
-
-         <View style={styles.listItem}>
-            <Text style={styles.listText}>{item.name}</Text>
-          </View>
-        </TouchableOpacity>
-
+          <TouchableOpacity onPress={() => navigation.navigate('Products', { categoryId: item.subCategoryId })}>
+            <View style={styles.listItem}>
+              <Text style={styles.listText}>{item.name}</Text>
+            </View>
+          </TouchableOpacity>
         )}
         keyExtractor={(item) => item.id.toString()}
       />
@@ -49,8 +75,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 24,
     marginBottom: 10,
-    color:'#512104'
-
+    color: '#512104',
   },
   listItem: {
     padding: 10,
@@ -60,7 +85,7 @@ const styles = StyleSheet.create({
   },
   listText: {
     fontSize: 16,
-    color:'#512104'
+    color: '#512104',
   },
 });
 

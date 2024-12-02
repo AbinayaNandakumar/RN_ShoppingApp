@@ -59,7 +59,7 @@ const styles = StyleSheet.create ({
     smallContentView:
     {
 
-    backgroundColor: '#ffffff',//'#BABECC',
+    backgroundColor: '#ffffff',
     borderRadius: 10,
     borderWidth: 0.2,
     alignItems:'center',

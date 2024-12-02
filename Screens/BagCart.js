@@ -11,7 +11,6 @@ import { useNavigation } from '@react-navigation/native';
 const BagCart = ({ route }) => {
   const navigation = useNavigation();
 
- // const productDetailArray = route.params ? route.params.productsAddedForCart : null;
   const { cartItems, removeFromCart, updateQuantity } = useContext(CartUserContext);
   if (cartItems.length === 0) {
     return (

@@ -19,7 +19,7 @@ const HeaderRightButton = () => {
   return (
     <TouchableOpacity onPress={handlePress}>
       <View style={{ marginRight: 8, flexDirection: 'row', alignItems: 'center' }}>
-        <Ionicons name="cart-outline" size={25} style={{ marginRight: -7 }} />
+        <Ionicons name="cart-outline" size={26} style={{ marginRight: -4 }} />
         {totalQuantity > 0 && (
           <Badge
             style={{

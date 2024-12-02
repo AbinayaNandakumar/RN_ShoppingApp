@@ -9,23 +9,13 @@ import { useNavigation } from '@react-navigation/native';
 const OrderCompleteScreen = ({ route }) => {
   const navigation = useNavigation();
 
-  const { cartItems, shippingAddress, deliveryOption, selectedPaymentOption, addCardDetails, totalPrice } = route.params;
+  const { cartItems, shippingAddress, deliveryOption, selectedPaymentOption, addCardDetails, totalPrice ,orderNumber} = route.params;
   const { clearCart } = useContext(CartUserContext);
-  const [orderNumber, setOrderNumber] = useState('');
 
   useEffect(() => {
-    setOrderNumber(RandomNumberGenerator);
     clearCart();
      }, []);
  
-  // const handleConfirmOrder = () => {
-  //   console.log('Order confirmed');
-  // };
-
-  // const handleCancelOrder = () => {
-  //   console.log('Order cancelled');
-  //   navigation.goBack();
-  //};
 
   const handleShopMore = () => {
     console.log('shop more');

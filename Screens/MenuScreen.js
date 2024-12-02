@@ -99,8 +99,3 @@ const styles = StyleSheet.create({
 });
 
 export default MenuScreen;
-
-/*<TouchableOpacity
-            style={styles.itemContainer}
-            onPress={() => navigation.navigate(item.name)}
-          ></TouchableOpacity>*/

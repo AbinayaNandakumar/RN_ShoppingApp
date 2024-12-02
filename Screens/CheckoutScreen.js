@@ -1,12 +1,20 @@
 import { CartUserContext } from '../Store/CartUserContext';
-import {useContext} from 'react';
+import {useContext,useState,useEffect} from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import ShippingAddressScreen from './ShippingAddressScreen';
 import { useNavigation } from '@react-navigation/native';
+import { storePlaceOrderData } from '../Util/http';
+import RandomNumberGenerator from '../Components/RandomNumberGenerator';
 
 const CheckoutScreen = () => {
     const navigation = useNavigation();
+    const [orderNumber, setOrderNumber] = useState('');
+
+    useEffect(() => {
+     setOrderNumber(RandomNumberGenerator);
+        }, []);
+    
+
 
     const { 
       cartItems, 
@@ -22,7 +30,6 @@ const CheckoutScreen = () => {
     return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   };
 
-  //const shippingCost = 10; 
   const totalPrice = calculateSubtotal() + shippingCost;
 
   const handlePress = (item) => {
@@ -71,8 +78,23 @@ const CheckoutScreen = () => {
     alert('Your cart is empty');
     return;
   }
+  
+  const orderData = {
+    cartItems,
+    orderID:orderNumber,
+    shippingAddress,
+    deliveryOption,
+    paymentMethod: selectedPaymentOption,
+    cardDetails: addCardDetails,
+    subtotal: calculateSubtotal(),
+    shippingCost,
+    totalPrice,
+    orderDate: new Date().toISOString(),
+  };
 
-  // Navigate to Order Confirmation screen
+
+  storePlaceOrderData(orderData)
+
   navigation.navigate('ORDER COMPLETE', {
     cartItems,
     shippingAddress,
@@ -80,6 +102,7 @@ const CheckoutScreen = () => {
     selectedPaymentOption,
     addCardDetails,
     totalPrice,
+    orderNumber
   });
   };
 
@@ -112,6 +135,12 @@ const CheckoutScreen = () => {
     },
   ];
 
+  const maskCardNumber = (cardNumber) => {
+    const visibleDigits = cardNumber.slice(0, 4) + cardNumber.slice(-2);
+    const maskedDigits = '*'.repeat(cardNumber.length - visibleDigits.length);
+    return visibleDigits + maskedDigits;
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -134,10 +163,7 @@ const CheckoutScreen = () => {
                 <Text style={styles.itemDescription}>{selectedPaymentOption}</Text>
                 {selectedPaymentOption === 'Card' && addCardDetails ? (
                   <View>
-                    <Text>Card Number: {addCardDetails.cardNumber}</Text>
-                    <Text>Expiry Date: {addCardDetails.expiryDate}</Text>
-                    <Text>CVV: {addCardDetails.cvv}</Text>
-                    <Text>Card Holder Name: {addCardDetails.cardHolderName}</Text>
+                    <Text>Card Number:{maskCardNumber(addCardDetails.cardNumber)}</Text>
                   </View>
                 ) : null}
               </View>
