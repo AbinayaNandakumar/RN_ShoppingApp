@@ -17,14 +17,15 @@ export default function App() {
   return (
     <CartUserProvider>
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{
+      headerStyle: { backgroundColor: '#ccb5a8' }}}>
       <Stack.Screen
           name=' '
           component={TabNavigator}
           options={({ navigation }) => ({
             headerShown:false})} />
             
-      <Stack.Screen name="YOUR BAG" component={BagCart} />
+      <Stack.Screen name="YOUR BAG" component={BagCart}/>
       <Stack.Screen name="CHECKOUT" component={CheckoutScreen} />
       <Stack.Screen name="SHIPPING ADDRESS" component={ShippingAddressScreen} />
       <Stack.Screen name="DELIVERY OPTIONS" component={DeliveryOptionScreen} />
